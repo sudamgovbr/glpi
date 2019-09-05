@@ -1,0 +1,1385 @@
+[2019-08-13 09:39:16] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: INSERT INTO `glpi_notifications_notificationtemplates` (`notifications_id`, `mode`, `notificationtemplates_id`) VALUES ('4', 'ajax', '14')
+  Error: Duplicate entry '4-ajax-14' for key 'unicity'
+  Backtrace :
+  inc/dbmysql.class.php:832                          
+  inc/commondbtm.class.php:659                       DBmysql->insert()
+  inc/commondbtm.class.php:1141                      CommonDBTM->addToDB()
+  ...t/notification_notificationtemplate.form.php:47 CommonDBTM->add()
+  {"user":"2@29ccf9123833"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_lines`.`name` AS itemname,
+                                   `glpi_lines`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_lines`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Line'
+                                  AND `glpi_lines`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Line'
+                                  AND `glpi_lines`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_lines`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_lines`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_lines`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_lines.is_template' in 'where clause'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_dcrooms`.`name` AS itemname,
+                                   `glpi_dcrooms`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_dcrooms`
+                              ON (`glpi_contracts_items`.`itemtype` = 'DCRoom'
+                                  AND `glpi_dcrooms`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'DCRoom'
+                                  AND `glpi_dcrooms`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_dcrooms`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_dcrooms`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_dcrooms`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_dcrooms.is_template' in 'where clause'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.006\", 2.37Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicepowersupplies`.`name` AS itemname,
+                                   `glpi_items_devicepowersupplies`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicepowersupplies`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DevicePowerSupply'
+                                  AND `glpi_items_devicepowersupplies`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DevicePowerSupply'
+                                  AND `glpi_items_devicepowersupplies`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicepowersupplies`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicepowersupplies`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicepowersupplies`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicepowersupplies.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.027\", 2.37Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicepcis`.`name` AS itemname,
+                                   `glpi_items_devicepcis`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicepcis`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DevicePci'
+                                  AND `glpi_items_devicepcis`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DevicePci'
+                                  AND `glpi_items_devicepcis`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicepcis`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicepcis`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicepcis`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicepcis.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.001\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicecases`.`name` AS itemname,
+                                   `glpi_items_devicecases`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicecases`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceCase'
+                                  AND `glpi_items_devicecases`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceCase'
+                                  AND `glpi_items_devicecases`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicecases`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicecases`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicecases`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicecases.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.001\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicegraphiccards`.`name` AS itemname,
+                                   `glpi_items_devicegraphiccards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicegraphiccards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceGraphicCard'
+                                  AND `glpi_items_devicegraphiccards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceGraphicCard'
+                                  AND `glpi_items_devicegraphiccards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicegraphiccards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicegraphiccards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicegraphiccards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicegraphiccards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.001\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicemotherboards`.`name` AS itemname,
+                                   `glpi_items_devicemotherboards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicemotherboards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceMotherBoard'
+                                  AND `glpi_items_devicemotherboards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceMotherBoard'
+                                  AND `glpi_items_devicemotherboards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicemotherboards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicemotherboards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicemotherboards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicemotherboards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.001\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicenetworkcards`.`name` AS itemname,
+                                   `glpi_items_devicenetworkcards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicenetworkcards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceNetworkCard'
+                                  AND `glpi_items_devicenetworkcards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceNetworkCard'
+                                  AND `glpi_items_devicenetworkcards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicenetworkcards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicenetworkcards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicenetworkcards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicenetworkcards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicesoundcards`.`name` AS itemname,
+                                   `glpi_items_devicesoundcards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicesoundcards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceSoundCard'
+                                  AND `glpi_items_devicesoundcards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceSoundCard'
+                                  AND `glpi_items_devicesoundcards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicesoundcards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicesoundcards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicesoundcards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicesoundcards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.001\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicecontrols`.`name` AS itemname,
+                                   `glpi_items_devicecontrols`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicecontrols`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceControl'
+                                  AND `glpi_items_devicecontrols`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceControl'
+                                  AND `glpi_items_devicecontrols`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicecontrols`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicecontrols`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicecontrols`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicecontrols.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_deviceharddrives`.`name` AS itemname,
+                                   `glpi_items_deviceharddrives`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_deviceharddrives`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceHardDrive'
+                                  AND `glpi_items_deviceharddrives`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceHardDrive'
+                                  AND `glpi_items_deviceharddrives`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_deviceharddrives`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_deviceharddrives`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_deviceharddrives`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_deviceharddrives.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicedrives`.`name` AS itemname,
+                                   `glpi_items_devicedrives`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicedrives`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceDrive'
+                                  AND `glpi_items_devicedrives`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceDrive'
+                                  AND `glpi_items_devicedrives`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicedrives`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicedrives`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicedrives`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicedrives.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicememories`.`name` AS itemname,
+                                   `glpi_items_devicememories`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicememories`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceMemory'
+                                  AND `glpi_items_devicememories`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceMemory'
+                                  AND `glpi_items_devicememories`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicememories`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicememories`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicememories`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicememories.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.001\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_deviceprocessors`.`name` AS itemname,
+                                   `glpi_items_deviceprocessors`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_deviceprocessors`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceProcessor'
+                                  AND `glpi_items_deviceprocessors`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceProcessor'
+                                  AND `glpi_items_deviceprocessors`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_deviceprocessors`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_deviceprocessors`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_deviceprocessors`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_deviceprocessors.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicegenerics`.`name` AS itemname,
+                                   `glpi_items_devicegenerics`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicegenerics`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceGeneric'
+                                  AND `glpi_items_devicegenerics`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceGeneric'
+                                  AND `glpi_items_devicegenerics`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicegenerics`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicegenerics`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicegenerics`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicegenerics.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicebatteries`.`name` AS itemname,
+                                   `glpi_items_devicebatteries`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicebatteries`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceBattery'
+                                  AND `glpi_items_devicebatteries`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceBattery'
+                                  AND `glpi_items_devicebatteries`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicebatteries`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicebatteries`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicebatteries`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicebatteries.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicefirmwares`.`name` AS itemname,
+                                   `glpi_items_devicefirmwares`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicefirmwares`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceFirmware'
+                                  AND `glpi_items_devicefirmwares`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceFirmware'
+                                  AND `glpi_items_devicefirmwares`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicefirmwares`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicefirmwares`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicefirmwares`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicefirmwares.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicesimcards`.`name` AS itemname,
+                                   `glpi_items_devicesimcards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicesimcards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceSimcard'
+                                  AND `glpi_items_devicesimcards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceSimcard'
+                                  AND `glpi_items_devicesimcards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicesimcards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicesimcards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicesimcards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicesimcards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-16 09:35:05] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicesensors`.`name` AS itemname,
+                                   `glpi_items_devicesensors`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicesensors`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceSensor'
+                                  AND `glpi_items_devicesensors`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceSensor'
+                                  AND `glpi_items_devicesensors`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicesensors`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicesensors`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicesensors`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicesensors.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.000\", 2.35Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_lines`.`name` AS itemname,
+                                   `glpi_lines`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_lines`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Line'
+                                  AND `glpi_lines`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Line'
+                                  AND `glpi_lines`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_lines`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_lines`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_lines`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_lines.is_template' in 'where clause'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_dcrooms`.`name` AS itemname,
+                                   `glpi_dcrooms`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_dcrooms`
+                              ON (`glpi_contracts_items`.`itemtype` = 'DCRoom'
+                                  AND `glpi_dcrooms`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'DCRoom'
+                                  AND `glpi_dcrooms`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_dcrooms`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_dcrooms`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_dcrooms`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_dcrooms.is_template' in 'where clause'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.167\", 2.35Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicepowersupplies`.`name` AS itemname,
+                                   `glpi_items_devicepowersupplies`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicepowersupplies`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DevicePowerSupply'
+                                  AND `glpi_items_devicepowersupplies`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DevicePowerSupply'
+                                  AND `glpi_items_devicepowersupplies`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicepowersupplies`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicepowersupplies`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicepowersupplies`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicepowersupplies.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.058\", 2.35Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicepcis`.`name` AS itemname,
+                                   `glpi_items_devicepcis`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicepcis`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DevicePci'
+                                  AND `glpi_items_devicepcis`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DevicePci'
+                                  AND `glpi_items_devicepcis`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicepcis`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicepcis`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicepcis`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicepcis.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.014\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicecases`.`name` AS itemname,
+                                   `glpi_items_devicecases`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicecases`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceCase'
+                                  AND `glpi_items_devicecases`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceCase'
+                                  AND `glpi_items_devicecases`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicecases`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicecases`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicecases`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicecases.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.048\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicegraphiccards`.`name` AS itemname,
+                                   `glpi_items_devicegraphiccards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicegraphiccards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceGraphicCard'
+                                  AND `glpi_items_devicegraphiccards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceGraphicCard'
+                                  AND `glpi_items_devicegraphiccards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicegraphiccards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicegraphiccards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicegraphiccards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicegraphiccards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.036\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicemotherboards`.`name` AS itemname,
+                                   `glpi_items_devicemotherboards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicemotherboards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceMotherBoard'
+                                  AND `glpi_items_devicemotherboards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceMotherBoard'
+                                  AND `glpi_items_devicemotherboards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicemotherboards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicemotherboards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicemotherboards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicemotherboards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.047\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicenetworkcards`.`name` AS itemname,
+                                   `glpi_items_devicenetworkcards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicenetworkcards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceNetworkCard'
+                                  AND `glpi_items_devicenetworkcards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceNetworkCard'
+                                  AND `glpi_items_devicenetworkcards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicenetworkcards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicenetworkcards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicenetworkcards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicenetworkcards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.013\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicesoundcards`.`name` AS itemname,
+                                   `glpi_items_devicesoundcards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicesoundcards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceSoundCard'
+                                  AND `glpi_items_devicesoundcards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceSoundCard'
+                                  AND `glpi_items_devicesoundcards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicesoundcards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicesoundcards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicesoundcards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicesoundcards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.040\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicecontrols`.`name` AS itemname,
+                                   `glpi_items_devicecontrols`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicecontrols`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceControl'
+                                  AND `glpi_items_devicecontrols`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceControl'
+                                  AND `glpi_items_devicecontrols`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicecontrols`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicecontrols`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicecontrols`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicecontrols.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.043\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_deviceharddrives`.`name` AS itemname,
+                                   `glpi_items_deviceharddrives`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_deviceharddrives`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceHardDrive'
+                                  AND `glpi_items_deviceharddrives`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceHardDrive'
+                                  AND `glpi_items_deviceharddrives`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_deviceharddrives`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_deviceharddrives`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_deviceharddrives`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_deviceharddrives.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.001\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicedrives`.`name` AS itemname,
+                                   `glpi_items_devicedrives`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicedrives`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceDrive'
+                                  AND `glpi_items_devicedrives`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceDrive'
+                                  AND `glpi_items_devicedrives`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicedrives`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicedrives`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicedrives`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicedrives.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.027\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicememories`.`name` AS itemname,
+                                   `glpi_items_devicememories`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicememories`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceMemory'
+                                  AND `glpi_items_devicememories`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceMemory'
+                                  AND `glpi_items_devicememories`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicememories`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicememories`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicememories`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicememories.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.008\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_deviceprocessors`.`name` AS itemname,
+                                   `glpi_items_deviceprocessors`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_deviceprocessors`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceProcessor'
+                                  AND `glpi_items_deviceprocessors`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceProcessor'
+                                  AND `glpi_items_deviceprocessors`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_deviceprocessors`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_deviceprocessors`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_deviceprocessors`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_deviceprocessors.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.042\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicegenerics`.`name` AS itemname,
+                                   `glpi_items_devicegenerics`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicegenerics`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceGeneric'
+                                  AND `glpi_items_devicegenerics`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceGeneric'
+                                  AND `glpi_items_devicegenerics`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicegenerics`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicegenerics`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicegenerics`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicegenerics.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.014\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicebatteries`.`name` AS itemname,
+                                   `glpi_items_devicebatteries`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicebatteries`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceBattery'
+                                  AND `glpi_items_devicebatteries`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceBattery'
+                                  AND `glpi_items_devicebatteries`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicebatteries`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicebatteries`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicebatteries`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicebatteries.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.014\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicefirmwares`.`name` AS itemname,
+                                   `glpi_items_devicefirmwares`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicefirmwares`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceFirmware'
+                                  AND `glpi_items_devicefirmwares`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceFirmware'
+                                  AND `glpi_items_devicefirmwares`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicefirmwares`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicefirmwares`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicefirmwares`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicefirmwares.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.010\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicesimcards`.`name` AS itemname,
+                                   `glpi_items_devicesimcards`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicesimcards`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceSimcard'
+                                  AND `glpi_items_devicesimcards`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceSimcard'
+                                  AND `glpi_items_devicesimcards`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicesimcards`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicesimcards`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicesimcards`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicesimcards.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.017\", 2.33Mio)"} 
+[2019-08-21 07:13:49] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_items_devicesensors`.`name` AS itemname,
+                                   `glpi_items_devicesensors`.`is_deleted` AS itemdeleted,
+                                   `glpi_locations`.`completename` AS location,
+                                   `glpi_contracttypes`.`name` AS type,
+                                   `glpi_infocoms`.`buy_date`,
+                                   `glpi_infocoms`.`warranty_duration`,
+                                   `glpi_contracts`.`begin_date`,
+                                   `glpi_contracts`.`duration`,
+                                   `glpi_entities`.`completename` AS entname,
+                                   `glpi_entities`.`id` AS entID
+                            FROM `glpi_contracts_items`
+                            INNER JOIN `glpi_contracts`
+                              ON (`glpi_contracts_items`.`contracts_id` = `glpi_contracts`.`id`)
+                            INNER JOIN `glpi_items_devicesensors`
+                              ON (`glpi_contracts_items`.`itemtype` = 'Item_DeviceSensor'
+                                  AND `glpi_items_devicesensors`.`id` = `glpi_contracts_items`.`items_id`)
+                            LEFT JOIN `glpi_infocoms`
+                              ON (`glpi_infocoms`.`itemtype` = 'Item_DeviceSensor'
+                                  AND `glpi_items_devicesensors`.`id` = `glpi_infocoms`.`items_id`)
+                            LEFT JOIN `glpi_contracttypes`
+                              ON (`glpi_contracts`.`contracttypes_id` = `glpi_contracttypes`.`id`)
+                            LEFT JOIN `glpi_locations`
+                              ON (`glpi_items_devicesensors`.`locations_id` = `glpi_locations`.`id`)
+                            LEFT JOIN `glpi_entities`
+                              ON (`glpi_items_devicesensors`.`entities_id` = `glpi_entities`.`id`)
+                            WHERE `glpi_items_devicesensors`.`is_template` ='0'  AND (  YEAR(`glpi_infocoms`.`buy_date`) = '2019'
+                                   OR YEAR(`glpi_contracts`.`begin_date`) = '2019') ORDER BY entname ASC, itemdeleted DESC, itemname ASC
+  Error: Unknown column 'glpi_items_devicesensors.name' in 'field list'
+  Backtrace :
+  front/report.contract.list.php:169                 
+  {"user":"2@29ccf9123833","mem_usage":"0.013\", 2.33Mio)"} 
+[2019-08-21 07:13:51] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `states_id`, COUNT(*) AS cpt
+                         FROM `glpi_lines` WHERE (  1 ) 
+                              AND `is_deleted` = 0
+                              AND `is_template` = 0
+                         GROUP BY `states_id`
+  Error: Unknown column 'is_template' in 'where clause'
+  Backtrace :
+  inc/state.class.php:138                            
+  front/report.state.php:49                          State::showSummary()
+  {"user":"2@29ccf9123833"} 
+[2019-08-21 07:13:52] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `states_id`, COUNT(*) AS cpt
+                         FROM `glpi_softwareversions` WHERE (  1 ) 
+                              AND `is_deleted` = 0
+                              AND `is_template` = 0
+                         GROUP BY `states_id`
+  Error: Unknown column 'is_deleted' in 'where clause'
+  Backtrace :
+  inc/state.class.php:138                            
+  front/report.state.php:49                          State::showSummary()
+  {"user":"2@29ccf9123833","mem_usage":"0.095\", 2.55Mio)"} 
+[2019-08-22 09:36:34] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: 12
+  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '12' at line 1
+  Backtrace :
+  inc/ticket.class.php:5576                          
+  front/helpdesk.public.php:107                      Ticket::showCentralList()
+  {"user":"247@29ccf9123833"} 
+[2019-09-03 18:35:11] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `states_id`, COUNT(*) AS cpt
+                         FROM `glpi_lines` WHERE (  1 ) 
+                              AND `is_deleted` = 0
+                              AND `is_template` = 0
+                         GROUP BY `states_id`
+  Error: Unknown column 'is_template' in 'where clause'
+  Backtrace :
+  inc/state.class.php:138                            
+  front/report.state.php:49                          State::showSummary()
+  {"user":"438@29ccf9123833"} 
+[2019-09-03 18:35:11] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `states_id`, COUNT(*) AS cpt
+                         FROM `glpi_softwareversions` WHERE (  1 ) 
+                              AND `is_deleted` = 0
+                              AND `is_template` = 0
+                         GROUP BY `states_id`
+  Error: Unknown column 'is_deleted' in 'where clause'
+  Backtrace :
+  inc/state.class.php:138                            
+  front/report.state.php:49                          State::showSummary()
+  {"user":"438@29ccf9123833","mem_usage":"0.036\", 2.48Mio)"} 
+[2019-09-04 13:14:54] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_tickettasks`.`state`
+                  FROM `glpi_tickettasks`
+                  WHERE `glpi_tickettasks`.`tickets_id` = 
+  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+  Backtrace :
+  inc/ticket.class.php:7105                          
+  inc/commonitilobject.class.php:6247                Ticket::getTaskState()
+  inc/ticket.class.php:831                           CommonITILObject->showTimelineForm()
+  inc/commonglpi.class.php:485                       Ticket::displayTabContentForItem()
+  ajax/common.tabs.php:92                            CommonGLPI::displayStandardTab()
+  {"user":"2@3ab56e61a69f","mem_usage":"0.000\", 2.55Mio)"} 
+[2019-09-04 13:14:58] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_tickettasks`.`state`
+                  FROM `glpi_tickettasks`
+                  WHERE `glpi_tickettasks`.`tickets_id` = 
+  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+  Backtrace :
+  inc/ticket.class.php:7105                          
+  inc/commonitilobject.class.php:6247                Ticket::getTaskState()
+  inc/ticket.class.php:831                           CommonITILObject->showTimelineForm()
+  inc/commonglpi.class.php:485                       Ticket::displayTabContentForItem()
+  ajax/common.tabs.php:92                            CommonGLPI::displayStandardTab()
+  {"user":"2@3ab56e61a69f","mem_usage":"0.000\", 2.55Mio)"} 
+[2019-09-04 13:15:02] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_tickettasks`.`state`
+                  FROM `glpi_tickettasks`
+                  WHERE `glpi_tickettasks`.`tickets_id` = 
+  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+  Backtrace :
+  inc/ticket.class.php:7105                          
+  inc/commonitilobject.class.php:6247                Ticket::getTaskState()
+  inc/ticket.class.php:831                           CommonITILObject->showTimelineForm()
+  inc/commonglpi.class.php:485                       Ticket::displayTabContentForItem()
+  ajax/common.tabs.php:92                            CommonGLPI::displayStandardTab()
+  {"user":"2@3ab56e61a69f","mem_usage":"0.000\", 2.55Mio)"} 
+[2019-09-04 13:15:03] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_tickettasks`.`state`
+                  FROM `glpi_tickettasks`
+                  WHERE `glpi_tickettasks`.`tickets_id` = 
+  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+  Backtrace :
+  inc/ticket.class.php:7105                          
+  inc/commonitilobject.class.php:6247                Ticket::getTaskState()
+  inc/ticket.class.php:831                           CommonITILObject->showTimelineForm()
+  inc/commonglpi.class.php:485                       Ticket::displayTabContentForItem()
+  ajax/common.tabs.php:92                            CommonGLPI::displayStandardTab()
+  {"user":"2@3ab56e61a69f","mem_usage":"0.000\", 2.55Mio)"} 
+[2019-09-04 13:15:28] glpisqllog.ERROR: DBmysql::query() in /var/www/html/glpi/inc/dbmysql.class.php line 188
+  *** MySQL query error:
+  SQL: SELECT `glpi_tickettasks`.`state`
+                  FROM `glpi_tickettasks`
+                  WHERE `glpi_tickettasks`.`tickets_id` = 
+  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+  Backtrace :
+  inc/ticket.class.php:7105                          
+  inc/commonitilobject.class.php:6247                Ticket::getTaskState()
+  inc/ticket.class.php:831                           CommonITILObject->showTimelineForm()
+  inc/commonglpi.class.php:485                       Ticket::displayTabContentForItem()
+  ajax/common.tabs.php:92                            CommonGLPI::displayStandardTab()
+  {"user":"2@3ab56e61a69f","mem_usage":"0.000\", 3.51Mio)"} 
